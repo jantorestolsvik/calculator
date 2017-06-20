@@ -22,24 +22,60 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: 5px;
+            max-width: 120px;
+            justify-content: center;
+        }
+
+        .operationContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 5px;
+            justify-content: space-between;
         }
 
         .number {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
+            margin: 2.5px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            background-color: aliceblue;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;;
+        }
+
+        .number:hover {
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
         }
 
         .operation {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;;
+            border: 1px solid hsla(0, 0%, 63%, 0.36);
+        }
+
+        .clear {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: rgba(255, 0, 0, 0.73);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
         }
 
         .active {
@@ -52,11 +88,12 @@
     <div id="result" class="result">
         0
     </div>
-    <div class="numberContainer">
+    <div class="operationContainer ">
         <div class="operation" data-operation="pluss">+</div>
         <div class="operation" data-operation="minus">-</div>
         <div class="operation" data-operation="multiply">*</div>
         <div class="operation" data-operation="divide">/</div>
+        <div class="clear">C</div>
     </div>
     <div>
         <div class="numberContainer">
@@ -69,7 +106,7 @@
             <div class="number">7</div>
             <div class="number">8</div>
             <div class="number">9</div>
-            <div class="number">10</div>
+            <div class="number">0</div>
         </div>
     </div>
 </div>

@@ -25,4 +25,9 @@ $(".operation").click((e) => {
     markOperation();
 });
 
+$(".clear").click((e) => {
+    result = 0
+    $("#result").text(result);
+});
+
 markOperation();
