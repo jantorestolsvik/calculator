@@ -4,8 +4,77 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <style>
+        .frame {
+            width: 200px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .result {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: right;
+        }
+
+        .numberContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .operation {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: lightseagreen;
+        }
+    </style>
 </head>
 <body>
-<div>Hello world</div>
+<div class="frame">
+    <div id="result" class="result">
+        0
+    </div>
+    <div class="numberContainer">
+        <div class="operation" data-operation="pluss">+</div>
+        <div class="operation" data-operation="minus">-</div>
+        <div class="operation" data-operation="multiply">*</div>
+        <div class="operation" data-operation="divide">/</div>
+    </div>
+    <div>
+        <div class="numberContainer">
+            <div class="number">1</div>
+            <div class="number">2</div>
+            <div class="number">3</div>
+            <div class="number">4</div>
+            <div class="number">5</div>
+            <div class="number">6</div>
+            <div class="number">7</div>
+            <div class="number">8</div>
+            <div class="number">9</div>
+            <div class="number">10</div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+
 </body>
 </html>
