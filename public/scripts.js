@@ -3,31 +3,59 @@ const minus = "minus";
 const multiply = "multiply";
 const divide = "divide";
 
-let result = 0;
+const textToSign = {
+  pluss: "+",
+  minus: "-"
+};
+
+let numbers = [];
+let operations = [];
 let operation = pluss;
 
 const markOperation = () => {
-    $("[data-operation=" + operation + "]").addClass("active");
+  $("[data-operation=" + operation + "]").addClass("active");
 };
 
 $(".number").click((e) => {
-    if (operation === pluss) {
-        result += Number.parseInt(e.target.innerText);
-    } else if (operation === minus) {
-        result -= Number.parseInt(e.target.innerText);
+  if (numbers.length > 0) {
+    operations.push(operation);
+  }
+  numbers.push(Number.parseInt(e.target.innerText));
+
+  var result = "";
+  var numberValue = 0;
+
+  numbers.forEach((number, index) => {
+    result += number.toString();
+    if (index === 0) {
+      numberValue = number;
+    } else {
+      if (operations[index - 1] === pluss) {
+        numberValue += number;
+      } else if (operations[index - 1] === minus) {
+        numberValue -= number;
+      }
     }
-    $("#result").text(result);
+    if (index === numbers.length - 1) {
+      result += " = ";
+    } else {
+      result += " " + textToSign[operations[index]] + " ";
+    }
+  });
+
+  $("#result").text(result + numberValue);
 });
 
 $(".operation").click((e) => {
-    operation = e.target.dataset.operation;
-    $(".operation").removeClass("active");
-    markOperation();
+  operation = e.target.dataset.operation;
+  $(".operation").removeClass("active");
+  markOperation();
 });
 
 $(".clear").click((e) => {
-    result = 0
-    $("#result").text(result);
+  numbers = [];
+  operations = [];
+  $("#result").text(0);
 });
 
 markOperation();
