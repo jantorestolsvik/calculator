@@ -5,8 +5,12 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/hello', function (req, res) {
-    res.send({hello: "world"});
+app.get('/hello/:id', function (req, res) {
+    res.send({
+      hello: "world",
+      id: req.params.id,
+      name: req.query.name
+    });
 });
 
 app.use(express.static(__dirname + '/public'));
