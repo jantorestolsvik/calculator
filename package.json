@@ -13,9 +13,6 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0"
   },
-  "engines": {
-    "node": "6.2.0"
-  },
   "devDependencies": {
     "jest": "^21.2.1"
   }
