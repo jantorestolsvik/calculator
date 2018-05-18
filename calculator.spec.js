@@ -31,8 +31,11 @@ describe.skip("multiple operations", () => {
   it("oneMinusTwoEqualsMinusOne", () => {
     expect(performOperations("1 - 2")).toEqual(-1);
   });
+  it("shouldSupportMultipleOperations", () => {
+    expect(performOperations("1 - 2 + 3 + 1")).toEqual(3);
+  });
   it("shouldIgnoreIllegalCharacterSequences", () => {
-    expect(performOperations("1 + + + asd 2")).toEqual(3);
+    expect(performOperations("1 + + + asd 2 - 1 + 4")).toEqual(6);
   });
   it("shouldAlwaysUseLastKnownOperation", () => {
     expect(performOperations("1 + + - asd 2")).toEqual(-1);
